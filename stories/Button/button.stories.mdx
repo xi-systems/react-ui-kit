@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+
+import Button from '../../src/Button'
+
+<Meta title="Components|Button" component={Button} />
+
+# Button
+
+## Button can be used as
+
+Use the botton to trigger actions in the UI
+
+<Story name="Default">
+  <Button>
+    Buttton text
+  </Button>
+</Story>
+
+### States
+
+<Story name="states">
+  <div>
+    <Button loading={false}>test me</Button>
+    <Button loading={true}>Button test</Button>
+  </div>
+
+</Story>
+
+### Playground
+
+Experiment with this story with Knobs addon in Canvas mode.
+
+<Story name="knobs" parameters={{ decorators: [withKnobs] }}>
+  <Button loading={boolean('Loading')}>
+    test me
+  </Button>
+</Story>
