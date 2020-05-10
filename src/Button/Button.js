@@ -9,8 +9,8 @@ const Root = styled.div`
 `;
 
 const Button = (props) => {
-  const { children } = props;
-  return <Root as="button">{children}</Root>;
+  const { children, loading } = props;
+  return <Root as="button">{loading ? <span>loading</span> : children}</Root>;
 };
 
 export default Button;
