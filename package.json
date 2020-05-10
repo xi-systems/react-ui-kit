@@ -1,0 +1,33 @@
+{
+  "name": "@xi-systems/react-ui-kit",
+  "version": "0.1.1",
+  "main": "dist/index.js",
+  "repository": "https://github.com/xi-systems/react-ui-kit",
+  "author": "xi-systems",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "prepublishOnly": "babel src -d dist --copy-files",
+    "publish": "npm publish --access public"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addon-storysource": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
+    "babel-loader": "^8.1.0",
+    "babel-preset-minify": "^0.5.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^5.1.0"
+  }
+}
