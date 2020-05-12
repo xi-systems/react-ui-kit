@@ -119,6 +119,9 @@ const ContentInner = styled.span`
 `;
 
 const IconOuter = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: -2px !important;
   margin-right: 8px !important;
 `;
@@ -129,7 +132,7 @@ And here .... JSDoc feauture
  */
 
 const Button = (props) => {
-  const { children, loading, variant, fullWidth } = props;
+  const { children, loading, variant, fullWidth, icon: Icon } = props;
   return (
     <Root as="button" fullWidth={fullWidth}>
       <HoverBgWrapper>
@@ -137,9 +140,7 @@ const Button = (props) => {
       </HoverBgWrapper>
       <ContentOuter>
         <ContentInner>
-          <IconOuter>
-            
-          </IconOuter>
+          {Icon && <IconOuter>{Icon()}</IconOuter>}
           <span>{children}</span>
         </ContentInner>
       </ContentOuter>
@@ -157,12 +158,17 @@ Button.propTypes = {
    */
   fullWidth: PropTypes.bool,
   variant: PropTypes.oneOf(["default", "primary", "secondary"]),
+  /**
+   * Takes a Component as a function e.g. ``icon={() => <Icon size={16} icon="search" />}``.
+   */
+  icon: PropTypes.func,
 };
 
 Button.defaultProps = {
   loading: false,
   variant: "default",
   fullWidth: false,
+  icon: null,
 };
 
 export default Button;
