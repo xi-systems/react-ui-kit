@@ -40,11 +40,13 @@ Icon.propTypes = {
   icon: PropTypes.string.isRequired,
   block: PropTypes.bool,
   size: PropTypes.number,
+  color: PropTypes.string,
 };
 
 Icon.defaultProps = {
   block: false,
   size: 20,
+  color: "inherit",
 };
 
 export default Icon;

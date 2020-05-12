@@ -33,12 +33,12 @@ export const withIcon = () => (
 );
 
 export const inlineButtons = () => (
-  <>
+  <div style={{display: 'flex'}}>
     <Button icon={() => <Icon size={0} icon="search" />}>Test me</Button>
     <Button >Test me</Button>
     <Button >Test me</Button>
-    <Button icon={() => <Icon block size={18} icon="search" />}>Test me</Button>
-  </>
+    <Button icon={() => <Icon size={18} icon="search" />}>Test me</Button>
+  </div>
 );
 
 export const Loading = () => <Button loading={true}>Test me</Button>;

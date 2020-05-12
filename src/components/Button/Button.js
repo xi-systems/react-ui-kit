@@ -49,7 +49,7 @@ const Root = styled.div`
   white-space: nowrap !important;
 `;
 
-const HoverBgWrapper = styled.span`
+const BgWrapper = styled.span`
   position: absolute !important;
   top: 0px !important;
   left: 0px !important;
@@ -107,6 +107,8 @@ const HoverBg = styled.span`
 `;
 
 const ContentOuter = styled.span`
+  transition: opacity 0.8s !important;
+  opacity: ${({ loading }) => (loading ? 0 : 1)};
   display: block !important;
   position: relative !important;
   pointer-events: none !important;
@@ -128,6 +130,13 @@ const IconOuter = styled.span`
   margin-right: 8px !important;
 `;
 
+const LoaderOverlay = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
+
 /**
 Some more documentation goes here,
 And here .... JSDoc feauture
@@ -137,21 +146,22 @@ const Button = (props) => {
   const { children, loading, variant, fullWidth, icon: Icon, ...rest } = props;
   return (
     <Root as="button" fullWidth={fullWidth} {...rest}>
-      <HoverBgWrapper>
+      <BgWrapper>
         <HoverBg />
-      </HoverBgWrapper>
-      <ContentOuter>
-        {!loading ? (
-          <ContentInner>
-            <IconOuter>
-              {Icon()}
-            </IconOuter>
-            <span>{children}</span>
-          </ContentInner>
-        ) : (
-          <LoaderIndicator />
-        )}
+      </BgWrapper>
+      <ContentOuter loading={loading}>
+        <ContentInner>
+          <IconOuter>{Icon()}</IconOuter>
+          <span>{children}</span>
+        </ContentInner>
       </ContentOuter>
+      {loading && (
+        <BgWrapper>
+          <LoaderOverlay>
+            <LoaderIndicator />
+          </LoaderOverlay>
+        </BgWrapper>
+      )}
     </Root>
   );
 };
