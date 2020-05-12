@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+import LoaderIndicator from "../LoaderIndicator";
+
 const Root = styled.div`
   cursor: pointer;
   display: inline-block;
@@ -139,10 +141,14 @@ const Button = (props) => {
         <HoverBg />
       </HoverBgWrapper>
       <ContentOuter>
-        <ContentInner>
-          {Icon && <IconOuter>{Icon()}</IconOuter>}
-          <span>{children}</span>
-        </ContentInner>
+        {!loading ? (
+          <ContentInner>
+            {Icon && <IconOuter>{Icon()}</IconOuter>}
+            <span>{children}</span>
+          </ContentInner>
+        ) : (
+          <LoaderIndicator />
+        )}
       </ContentOuter>
     </Root>
   );
