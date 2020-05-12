@@ -32,6 +32,15 @@ export const withIcon = () => (
   </div>
 );
 
+export const inlineButtons = () => (
+  <>
+    <Button icon={() => <Icon size={0} icon="search" />}>Test me</Button>
+    <Button >Test me</Button>
+    <Button >Test me</Button>
+    <Button icon={() => <Icon block size={18} icon="search" />}>Test me</Button>
+  </>
+);
+
 export const Loading = () => <Button loading={true}>Test me</Button>;
 
 Loading.story = {

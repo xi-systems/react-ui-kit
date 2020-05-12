@@ -134,16 +134,18 @@ And here .... JSDoc feauture
  */
 
 const Button = (props) => {
-  const { children, loading, variant, fullWidth, icon: Icon } = props;
+  const { children, loading, variant, fullWidth, icon: Icon, ...rest } = props;
   return (
-    <Root as="button" fullWidth={fullWidth}>
+    <Root as="button" fullWidth={fullWidth} {...rest}>
       <HoverBgWrapper>
         <HoverBg />
       </HoverBgWrapper>
       <ContentOuter>
         {!loading ? (
           <ContentInner>
-            {Icon && <IconOuter>{Icon()}</IconOuter>}
+            <IconOuter>
+              {Icon()}
+            </IconOuter>
             <span>{children}</span>
           </ContentInner>
         ) : (
@@ -174,7 +176,7 @@ Button.defaultProps = {
   loading: false,
   variant: "default",
   fullWidth: false,
-  icon: null,
+  icon: () => {},
 };
 
 export default Button;
