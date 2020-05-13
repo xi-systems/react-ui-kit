@@ -149,7 +149,7 @@ const Button = (props) => {
       <BgWrapper>
         <HoverBg />
       </BgWrapper>
-      <ContentOuter loading={loading}>
+      <ContentOuter loading={loading ? 1 : 0}>
         <ContentInner>
           <IconOuter>{Icon()}</IconOuter>
           <span>{children}</span>
@@ -169,8 +169,9 @@ const Button = (props) => {
 Button.propTypes = {
   /**
     Use the loading state to indicate that the button action isn't finished yet.
+    You can pass a bool or number, if numer, them false = 0.
     */
-  loading: PropTypes.bool,
+  loading: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
   /**
    * If true, the button will take up the full width of its container.
    */
@@ -183,7 +184,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  loading: false,
+  loading: 0,
   variant: "default",
   fullWidth: false,
   icon: () => {},
