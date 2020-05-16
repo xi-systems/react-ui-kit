@@ -13,7 +13,7 @@ export default {
 export const large = () => (
   <div>
     <Avatar isLoading size="large" />
-    <Avatar size="large" username="Tom Coleman" />
+    <Avatar size="large" username="Tom Coleman" color="red" />
     <Avatar
       size="large"
       username="Tom Coleman"

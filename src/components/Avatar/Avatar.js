@@ -51,7 +51,7 @@ const Image = styled.div`
   ${(props) =>
     !props.src &&
     css`
-      background: ${!props.isLoading && "#37D5D3"};
+      background: ${!props.isLoading && props.color};
     `}
 
   img {
@@ -143,6 +143,10 @@ Avatar.propTypes = {
    Specify size
   */
   size: PropTypes.oneOf(Object.keys(sizes)),
+  /**
+   Specify a color to show if src are undefined.
+  */
+  color: PropTypes.string,
 };
 
 Avatar.defaultProps = {
@@ -150,6 +154,7 @@ Avatar.defaultProps = {
   username: "loading",
   src: null,
   size: "medium",
+  color: "#37D5D3",
 };
 
 export default Avatar;
