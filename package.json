@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "polished": "^3.6.3",
-    "prismjs": "^1.20.0",
+    "prismjs": "^1.23.0",
     "react-popper-tooltip": "^2.11.1",
     "uuid": "^8.0.0"
   },
